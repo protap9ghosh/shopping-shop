@@ -119,7 +119,7 @@ const updateTotal = () => {
 document.getElementById("search-btn").addEventListener("click", function () {
     const inputField = document.getElementById("input-value").value;
     const searchedProduct = arr[0].filter((p) =>
-    p.title.includes(`${inputField}`)
+        p.title.includes(`${inputField}`)
     );
     showProducts(searchedProduct);
     
