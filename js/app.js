@@ -105,3 +105,22 @@ const updateTaxAndCharge = () => {
         setInnerText("total-tax", priceConverted * 0.3);
     }
 };
+
+//grandTotal update function
+const updateTotal = () => {
+    const grandTotal =
+        getInputValue("price") +
+        getInputValue("delivery-charge") +
+        getInputValue("total-tax");
+    document.getElementById("total").innerText = grandTotal.toFixed(2);
+};
+
+// search by category
+document.getElementById("search-btn").addEventListener("click", function () {
+    const inputField = document.getElementById("input-value").value;
+    const searchedProduct = arr[0].filter((p) =>
+    p.title.includes(`${inputField}`)
+    );
+    showProducts(searchedProduct);
+    
+});
