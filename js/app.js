@@ -40,3 +40,21 @@ const showProducts = (products) => {
         document.getElementById("all-products").appendChild(div);
     }
 };
+
+let count = 0;
+
+const addToCart = (id, price) => {
+    count = count + 1;
+    updatePrice("price", price);
+
+    updateTaxAndCharge();
+    document.getElementById("total-Products").innerText = count;
+    updateTotal();
+};
+
+const showProductDetails = (product_id) => {
+    console.log(product_id);
+    fetch(`https://fakestoreapi.com/products/${product_id}`)
+        .then((res) => res.json())
+        .then((data) => showProductDetailsInModal(data));
+};
