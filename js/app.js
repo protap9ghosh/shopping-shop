@@ -58,3 +58,17 @@ const showProductDetails = (product_id) => {
         .then((res) => res.json())
         .then((data) => showProductDetailsInModal(data));
 };
+
+const showProductDetailsInModal = (product_details) => {
+    console.log(product_details);
+    setInnerText("exampleModalLabel", product_details.title);
+    setInnerText("productId", product_details.id);
+    setInnerText("modal_body", product_details.description);
+    setInnerText("rating", product_details.rating.rate);
+};
+
+const getInputValue = (id) => {
+    const element = document.getElementById(id).innerText;
+    const converted = parseFloat(element);
+    return converted;
+};
